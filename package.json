@@ -1,0 +1,20 @@
+{
+  "name": "leaflet.layer.canvasmarker",
+  "version": "1.0.0",
+  "description": "leaflet.layer.canvasMarker",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c build/rollup-config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "leaflet",
+    "canvasMarker"
+  ],
+  "author": "刘斌",
+  "license": "ISC",
+  "devDependencies": {
+    "leaflet": "^1.6.0",
+    "rollup": "^2.3.4"
+  }
+}

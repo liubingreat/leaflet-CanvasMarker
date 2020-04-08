@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet CanvasMarker</title>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../dist/leaflet.Layer.CanvasMarker.js"></script>
+	<style type="text/css">
+		html, body{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="map" ></div>
+
+	<script type="text/javascript">
+
+		var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			}),
+			latlng = new L.LatLng(34, 108);
+
+		var map = new L.Map('map', {center: latlng, zoom: 5, layers: [tiles], preferCanvas: true});
+		var layerGroup = new L.FeatureGroup();
+
+		function createMarkers() {
+			for (var i = 0; i < 100; i++) {
+				var m = new L.CanvasMarker(getRandomLatLng(map), {
+					iconUrl: "https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon-2x.png",
+					iconWidth: 20,
+					iconHeight: 26,
+					graphic: true
+				});
+				layerGroup.addLayer(m);
+			}
+			return false;
+		}
+		function getRandomLatLng(map) {
+			var bounds = map.getBounds(),
+				southWest = bounds.getSouthWest(),
+				northEast = bounds.getNorthEast(),
+				lngSpan = northEast.lng - southWest.lng,
+				latSpan = northEast.lat - southWest.lat;
+
+			return new L.LatLng(
+					southWest.lat + latSpan * Math.random(),
+					southWest.lng + lngSpan * Math.random());
+		}
+		createMarkers();
+
+		layerGroup.addTo(map);
+
+	</script>
+</body>
+</html>

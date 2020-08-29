@@ -27,8 +27,8 @@ Install rollup `npm install rollup  -g` then run `npm install rollup --save-dev`
 ### Examples
 See the included examples for usage.
 
-* The [simple example](http://47.92.221.235/canvasMarker/example/demo.html)
-* The [label example](http://47.92.221.235/canvasMarker/example/label-demo.html)
+* The [simple example](http://180.76.171.45:8080/leaflet-canvas-marker/example/demo.html)
+* The [label example](http://180.76.171.45:8080/leaflet-canvas-marker/example/label-demo.html)
 
 ### Usage
 Create a new CanvasMarker, then add your marker to the map

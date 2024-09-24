@@ -15,6 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "leaflet": "^1.6.0",
-    "rollup": "^2.3.4"
+    "rollup": "^3.29.5"
   }
 }
